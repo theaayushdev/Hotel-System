@@ -31,6 +31,8 @@ public class Management extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        log = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,8 +86,22 @@ public class Management extends javax.swing.JFrame {
         });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 303, 145, -1));
 
+        jLabel6.setFont(new java.awt.Font("Viner Hand ITC", 1, 36)); // NOI18N
+        jLabel6.setText("WELCOME");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 208, 61));
+
+        log.setBackground(new java.awt.Color(255, 255, 255));
+        log.setForeground(new java.awt.Color(0, 0, 0));
+        log.setText("Logout");
+        log.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logActionPerformed(evt);
+            }
+        });
+        getContentPane().add(log, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hii.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 400));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,6 +141,12 @@ public class Management extends javax.swing.JFrame {
 b.show();
 this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logActionPerformed
+      Users u = new Users();
+      u.show();
+      this.setVisible(false);
+    }//GEN-LAST:event_logActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,5 +194,7 @@ this.setVisible(false);// TODO add your handling code here:
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton log;
     // End of variables declaration//GEN-END:variables
 }

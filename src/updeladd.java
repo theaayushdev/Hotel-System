@@ -98,7 +98,7 @@ public class updeladd extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "Room", "Status", "Season", "Price", "Type"
             }
         ));
         tables.addMouseListener(new java.awt.event.MouseAdapter() {

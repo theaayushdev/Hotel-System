@@ -141,7 +141,7 @@ public class updeladd extends javax.swing.JFrame {
                 backActionPerformed(evt);
             }
         });
-        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 80, -1));
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 80, -1));
 
         type.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         type.setForeground(new java.awt.Color(255, 255, 255));

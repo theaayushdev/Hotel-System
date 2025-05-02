@@ -99,7 +99,7 @@ public class Booking extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 73, 142, -1));
 
         phone.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        phone.setText("Phone Number");
+        phone.setText("Check-IN");
         getContentPane().add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 248, 142, -1));
         getContentPane().add(numb, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 252, 142, -1));
         getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 77, 142, -1));
@@ -136,7 +136,7 @@ public class Booking extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Room", "Name", "Category", "Number"
+                "Room", "Name", "Category", "Check IN"
             }
         ));
         jScrollPane2.setViewportView(tab);
@@ -269,7 +269,7 @@ DefaultTableModel tb1Model = (DefaultTableModel)tab.getModel();
         Connection connection = DriverManager.getConnection(url, "root", "");
 
         // Execute the query
-        String sql = "SELECT Room, Status ,Type FROM managing";
+        String sql = "SELECT Room, Status ,Type ,Price FROM managing";
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(sql);
 
@@ -278,9 +278,10 @@ DefaultTableModel tb1Model = (DefaultTableModel)tab.getModel();
             String Room = rs.getString("Room");
             String Status = rs.getString("Status");
             String Type = rs.getString("Type");
+            String price = rs.getString("Price");
 
             // Add the data to the table model
-            String[] rowData = {Room, Status,Type};
+            String[] rowData = {Room, Status,Type,price};
             tb1Model.addRow(rowData);
         }
 

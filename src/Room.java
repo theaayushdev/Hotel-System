@@ -126,7 +126,7 @@ public class Room extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Name", "Phone number", "ID", "Address", "Room No"
+                "Name", "Number", "ID", "Address", "Room No"
             }
         ));
         tables.addAncestorListener(new javax.swing.event.AncestorListener() {

@@ -68,7 +68,7 @@ public class billing extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Reservation ID");
+        jLabel1.setText("ROOM NO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jLabel2.setText("Guest ID");
@@ -176,7 +176,7 @@ public class billing extends javax.swing.JFrame {
    String billstatus = (String)combo.getSelectedItem();
            
            
-           String invoiceText = "Dear customer your ID is: \n\n" + "Reservation ID: " + ID + "\n" +
+           String invoiceText = "Dear customer your details are: \n\n" + "ROOM No " + ID + "\n" +
                              "Guest ID: " + Guest + "\n" +
                              "Amount: " + Amount + "\n" +
                              "Bill Status: " + billstatus;

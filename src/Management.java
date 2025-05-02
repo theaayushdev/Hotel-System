@@ -78,7 +78,7 @@ public class Management extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 221, 145, -1));
 
-        jButton6.setText("Report Issue");
+        jButton6.setText("Reporting");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);

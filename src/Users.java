@@ -1,3 +1,11 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -25,15 +33,16 @@ public class Users extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pass = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        users = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         login = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        passwords = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -53,8 +62,7 @@ public class Users extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Password");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 110, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 140, -1));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 140, -1));
+        jPanel2.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 140, -1));
 
         jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("Remember ");
@@ -76,9 +84,10 @@ public class Users extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 51, 0));
         jLabel3.setText("WELCOME ");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 220, -1));
+        jPanel2.add(passwords, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 140, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/mountain-aesthetic-3pbvwsg3h7ksq2li.jpg"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-320, -20, 690, 350));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-270, -40, 690, 350));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 341, 230));
 
@@ -89,9 +98,35 @@ public class Users extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        Management m=new Management();
-        m.show();
+       try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            String url = "jdbc:mysql://localhost:3306/hotel";
+            
+           Connection connection;
+            connection = (Connection) DriverManager.getConnection(url, "root","");
+           String sql = "SELECT * FROM login WHERE Username = ? AND Password = ?";
+           
+          PreparedStatement statement;
+            statement = (PreparedStatement) connection.prepareStatement(sql);
+           statement.setString(1, users.getText());
+           statement.setString(2, new String(passwords.getPassword()));
+
+            ResultSet rs = statement.executeQuery();
+            if(rs.next())
+            {
+              Management adminPage = new Management();
+        adminPage.show();
         this.setVisible(false);
+            }
+            else {
+	JOptionPane.showMessageDialog(null, "Invalid username or password");
+	}
+
+          
+           
+        }catch(ClassNotFoundException | SQLException e){System.out.print(e);}
+        
         
     }//GEN-LAST:event_loginActionPerformed
 
@@ -139,8 +174,9 @@ public class Users extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton login;
+    private javax.swing.JTextField pass;
+    private javax.swing.JPasswordField passwords;
+    private javax.swing.JTextField users;
     // End of variables declaration//GEN-END:variables
 }
